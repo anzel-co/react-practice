@@ -2,32 +2,62 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 
-const h1 = <h1>BE UPDATED</h1>
-const p = <p>Sign up with your name and email address to latest receive news and updates</p>
-const form = (
+const hexaColor = () => {
+  let str = '0123456789abcdef'
+  let color = ''
+  for (let i = 0; i < 6; i++) {
+    let index = Math.floor(Math.random() * str.length)
+    color += str[index]
+  }
+  return '#' + color
+}
+let col = hexaColor()
+const hexaStyle = {
+  color: 'white',
+  background: col
+}
+const HexaColor = () => <div className='hexa' style={hexaStyle}>{hexaColor()}</div>
+
+const H1 = ({header}) => <h1>{header}</h1>
+const P = ({text}) => <p>{text}</p>
+const Form = ({
+  formData: {
+    firstnamePlaceholder,
+    lastnamePlaceholder,
+    emailPlaceholder,
+    buttonText
+  }
+}) => (
   <div className='form'>
-  <input id='firstname' placeholder='First Name'></input>
-  <input id='lastname' placeholder='Last Name'></input>
-  <input id='email' placeholder='Email'></input>
-  <button>SUBSCRIBE</button>
+  <input id='firstname' placeholder={firstnamePlaceholder}></input>
+  <input id='lastname' placeholder={lastnamePlaceholder}></input>
+  <input id='email' placeholder={emailPlaceholder}></input>
+  <button>{buttonText}</button>
   </div>
 )
 
-const app = (
+const App = () => {
+  const header = 'Be Updated'
+  const text = 'Sign up with your name and email address to latest receive news and updates'
+  const formData = {
+    firstnamePlaceholder: 'First Name',
+    lastnamePlaceholder: 'Last Name',
+    emailPlaceholder: 'Email',
+    buttonText: 'SUBSCRIBE'
+  }
+  return (
   <div className='app'>
-    {h1}
-    {p}
-    {form}
+    <div className='hexa'>
+      <HexaColor />
+    </div>
+    <div className='subscription'>
+      <H1 header={header}/>
+      <P text={text}/>
+      <Form formData={formData}/>
+    </div>
   </div>
-)
+  )
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
-root.render(app)
-
-//ReactDOM.render(app, root)
-let f = document.getElementsByClassName('form')
-console.log(root)
-console.log(h1)
-console.log(p)
-console.log(f)
-console.log(app)
+root.render(<App />)

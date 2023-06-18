@@ -3,7 +3,7 @@
     text-align: center;
 }
 
-.app{
+.subscription{
     background-color:rgba(30, 144, 255, 0.25);
     padding: 2%;
 }
@@ -17,15 +17,15 @@ input{
     height: 1.5em;
     font-size: 1em;
 }
-.form{
-    align-content: center;
-}
 button{
     display: block;
     margin: auto;
     margin-top: 2.5%;
     background-color:rgba(210, 95, 95, 0.75);
     border-radius: 0.5em;
+    font-size: 70%;
     width: 20%;
     height: 3em;
+    overflow: hidden;
+    cursor: pointer;
 }
