@@ -2,7 +2,31 @@
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-align: center;
 }
-
+#numberInput{
+    font-size: 90%;
+    font-weight: bold;
+    width: 20%;
+    height: 2em;
+    margin: 2%;
+}
+.NumContainer{
+    margin: auto;
+    width: 75%;
+}
+.num{
+    color: white;
+    font-size: 300%;
+    display: inline-block;
+    line-height: 2;
+    margin: 0.1%;
+    width: 2em;
+    height: 2em;
+    
+}
+.gen{
+    background-color: rgba(210, 95, 95, 0.70);
+    cursor: pointer;
+}
 .subscription{
     background-color:rgba(30, 144, 255, 0.25);
     padding: 2%;
@@ -10,15 +34,16 @@
 p{
     font-size: 1.5em;
 }
-input{
+.personalInfo{
     margin: 0.5%;
     border-radius: 0.5em;
     width: 25%;
     height: 1.5em;
     font-size: 1em;
 }
-button{
+.sub{
     display: block;
+    z-index: 3;
     margin: auto;
     margin-top: 2.5%;
     background-color:rgba(210, 95, 95, 0.75);
