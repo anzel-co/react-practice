@@ -1,6 +1,6 @@
-import React from "react"
+import React, { useState , useEffect} from "react"
 
-const hexaColor = () => {
+export const hexaColor = () => {
     let str = '0123456789abcdef'
     let color = ''
     for (let i = 0; i < 6; i++) {
@@ -12,24 +12,20 @@ const hexaColor = () => {
 
 let col = hexaColor()
 
-class HexaColor extends React.Component {
-    state = {
-      style: {
-        color: 'white',
-        background: col
-      }
-    }
-    componentDidMount() {
-      setInterval(() => {
-        col = hexaColor()
-        this.setState({style: {color: 'white', background: col}})
-      }, 1000);
-    }
-    render() {
+const HexaColor = () => {
+  const [style, setStyle] = useState({color: 'white', background: col})
+
+  useEffect(() => {
+    setInterval(() => {
+      col = hexaColor()
+      setStyle({color: 'white', background: col})
+    }, 1000)
+  }, [])
+
       return (
-      <div className='hexa' style={this.state.style}>{hexaColor()}</div>
+      <div className='hexa' style={style}>{hexaColor()}</div>
       )
-    }
   }
 
 export default HexaColor
+
