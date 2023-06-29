@@ -1,21 +1,23 @@
 import React from "react"
-import Generate from "./component/Generate.js"
-import HexaColor from "./component/HexaColor.js"
-import Subscribe from "./component/Subscribe.js"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Nav from "./component/Nav.js"
+import Home from "./pages/Home.js"
+import Link2 from "./pages/Link2.js"
+import Link3 from "./pages/Link3.js"
 
 const App = () => {
   return (
     <div className='app'>
-      <div className='generate'>
-        <Generate />
-      </div>
-      <div className='hexa'>
-        <HexaColor />
-      </div>
-      <div className='subscription'>
-        <Subscribe/>
-      </div>
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Nav />}>
+            <Route index element={<Home />}/>
+            <Route path='/link2' element={<Link2 />}/>
+            <Route path='/link3' element={<Link3 />}/>
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </div>
     )
   }
 

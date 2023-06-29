@@ -53,6 +53,12 @@ const Generate = () => {
     <input id='numberInput' type='number' ref={ref} placeholder='Enter a number to generate.'></input>
     <button className='gen' onClick={renderNum}>GENERATE NUMBER</button>
     <button className='gen' onClick={renderCol}>GENERATE COLORS</button>
+    <h4 className="generatedHeader">For generated numbers:</h4>
+    <p className="colorCode">Prime numbers are <b id='redNumber'>RED</b>.</p>
+    <p className="colorCode">Even numbers are <b id='greenNumber'>GREEN</b>.</p>
+    <p className="colorCode">Odd numbers are <b id='yellowNumber'>YELLOW</b>.</p>
+    <h4 className="generatedHeader">For generated colors:</h4>
+    <p className="colorCode">The color is indicated by the <b style={{color: hexaColor()}}>HEX CODE</b>.</p>
     <div className='NumContainer'>
       <Num />
     </div>
