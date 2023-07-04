@@ -66,30 +66,49 @@ body{
     width: 31%;
     text-align: center;
 }
+.sideBar{
+    display: none;
+}
 .navigationBar{
     position: relative;
     width: 100%;
-    height: 11vh;
+    height: 4em;
     background-color: cornflowerblue;
     box-sizing: border-box;
 }
 .appTitle{
+    display: flex;
     float: left;
     margin-left: 2%;
+    line-height: 1;
 }
 .navigationLinks{
     list-style: none;
+    flex-direction: row;
+    margin: auto;
     float: right;
-    width: 30%;
+    display: flex;
 }
 .navigationPages{
     color: white;
     display: inline-block;
-    margin: 0% 5%;
+    margin: 1em;
     box-sizing: border-box;
+    flex-direction: column;
+    justify-content: space-around;
 }
 .navigationPages:hover{
     color: black;
+}
+.sideBarButton{
+    display: none;
+}
+.sideBarButton span{
+    display: block;
+    width: 2.5em;
+    height: 3.5em;
+    background: black;
+    margin: 3px;
 }
 .logoutButton {
     background-color: transparent;
@@ -98,6 +117,7 @@ body{
     font-size: 1.1em;
     color: white;
     cursor: pointer;
+    line-height: 1;
 }
 .logoutButton:hover {
     color: black;
@@ -134,7 +154,7 @@ body{
     font-size: 1em;
     animation: popup 0.25s ease-out;
     width: 40%;
-    height: 25vh;
+    height: 9em;
     z-index: 10;
     position: absolute;
     background-color: rgba(30, 144, 255, 1);
@@ -170,7 +190,15 @@ body{
     margin: 1.5%;
     text-overflow: ellipsis;
 }
-@media screen and (max-width: 800px) {
+@keyframes sidebarshift {
+    0% {
+        translate: -300px;
+    }
+    100% {
+        translate: 0px;
+    }
+}
+@media screen and (max-width: 600px) {
     #numberInput{
         width: 50%;
         margin: auto;
@@ -186,13 +214,61 @@ body{
     .formButton{
         width: 30%;
     }
+    .appTitle{
+        margin: auto;
+        line-height: 1.5;
+        display: flex;
+        float: left;
+        text-align: center;
+        margin-left: 0.10em;
+    }
     .navigationBar{
-        height: 7vh;
+        height: 2.5em;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
     }
     .navigationLinks{
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         display: none;
     }
-
+    .sideBarButton{
+        width: 4em;
+        height: 2.5em;
+        background: transparent;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        cursor: pointer;
+        float: right;
+        margin: auto;
+    }
+    .sideBar{
+        animation: sidebarshift 0.25s ease-out;
+        display: block;
+        background-color:royalblue;
+        width: 50%;
+        height: 100vh;
+        z-index: 5;
+        position: absolute;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    }
+    .sideBarLinks{
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+    }
+    .sideBarPages{
+        margin: 10%;
+    }
 }
 .gen{
     background-color: rgba(210, 95, 95, 0.70);

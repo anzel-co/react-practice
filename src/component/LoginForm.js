@@ -72,7 +72,7 @@ const LoginForm = props => {
             <label className='formLabel' htmlFor="username">USERNAME</label>
             <input className='formInput' type='text' id='username' value={uname} onChange={unameChangeHandler} disabled={disabled} required/>
             <label className='formLabel' htmlFor="password">PASSWORD</label>
-            <input className='formInput' type={signin ? 'password' : 'text'} id='password' value={pword} onChange={pwordChangeHandler} disabled={disabled} required/>
+            <input className='formInput' type={signin ? 'password' : 'text'} id='password' value={pword} onChange={pwordChangeHandler} min='6' disabled={disabled} required/>
             {!signin && <small className="reminderMessage">This web app is for practice only and has no backend. Generate a username and password below and register.</small>}
             {!signin && <p className="generateCredentials" onClick={onGenerateCredentials}>GENERATE CREDENTIALS</p>}
             {generated && !signin && <small className="generateMessage">Username and password registered. Copy it to sign in.</small>}
